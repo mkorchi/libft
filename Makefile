@@ -6,7 +6,7 @@
 #    By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 11:49:02 by mkorchi           #+#    #+#              #
-#    Updated: 2021/11/07 11:55:31 by mkorchi          ###   ########.fr        #
+#    Updated: 2021/11/07 12:07:14 by mkorchi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC		= gcc
 
 CFLAGS	= -Wall -Wextra -Werror
 
-LIB		= libft.h
+LIBH		= libft.h
 
 SRC_BONUS =	ft_lstnew.c			\
 			ft_lstadd_front.c	\
