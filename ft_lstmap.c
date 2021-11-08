@@ -6,7 +6,7 @@
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 18:26:10 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/06 17:31:47 by mkorchi          ###   ########.fr       */
+/*   Updated: 2021/11/08 10:58:41 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*mylist;
 	t_list	*templist;
 
-	if (lst == NULL)
+	if (lst == NULL || f == NULL)
 		return (NULL);
 	mylist = NULL;
 	while (lst != NULL)
