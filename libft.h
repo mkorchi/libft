@@ -6,7 +6,7 @@
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:22:26 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/06 17:28:13 by mkorchi          ###   ########.fr       */
+/*   Updated: 2021/11/08 10:50:06 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <errno.h>
 # include <unistd.h>
 
 typedef struct s_list

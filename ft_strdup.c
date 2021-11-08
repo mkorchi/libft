@@ -6,7 +6,7 @@
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 15:42:35 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/04 14:01:03 by mkorchi          ###   ########.fr       */
+/*   Updated: 2021/11/08 10:50:32 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ char	*ft_strdup(const char *s1)
 		i++;
 	dest = (char *) malloc((i + 1) * sizeof(char));
 	if (!dest)
-	{
-		errno = ENOMEM;
 		return (NULL);
-	}
 	i = 0;
 	while (s1[i])
 	{
