@@ -6,13 +6,13 @@
 #    By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 11:49:02 by mkorchi           #+#    #+#              #
-#    Updated: 2021/11/07 12:07:14 by mkorchi          ###   ########.fr        #
+#    Updated: 2021/11/08 14:05:35 by mkorchi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 
-CC		= gcc
+CC		= cc
 
 CFLAGS	= -Wall -Wextra -Werror
 
