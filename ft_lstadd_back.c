@@ -6,7 +6,7 @@
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:34:08 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/06 17:30:25 by mkorchi          ###   ########.fr       */
+/*   Updated: 2021/11/09 17:23:00 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*mylist;
 
-	if (new == NULL)
+	if (new == NULL || lst == NULL)
 		return ;
 	if (*lst == NULL)
 	{
