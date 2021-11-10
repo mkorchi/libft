@@ -6,11 +6,11 @@
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 10:01:45 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/10 10:02:04 by mkorchi          ###   ########.fr       */
+/*   Updated: 2021/11/10 13:44:54 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {

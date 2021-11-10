@@ -6,7 +6,7 @@
 #    By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 11:49:02 by mkorchi           #+#    #+#              #
-#    Updated: 2021/11/10 10:05:54 by mkorchi          ###   ########.fr        #
+#    Updated: 2021/11/10 13:50:07 by mkorchi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
 LIBH		= libft.h
-
-LIBBONUS	= libft_bonus.h
 
 SRC_BONUS =	ft_lstnew_bonus.c		\
 			ft_lstadd_front_bonus.c	\
@@ -114,17 +112,17 @@ OBJS	= ft_isalpha.o		\
 
 all:	${NAME}
 
-${OBJS}: ${SRC} ${LIBH}
-	${CC} ${CFLAGS}  -c ${SRC} -I ${LIBH}
-
 ${NAME}: ${OBJS}
 	ar rc ${NAME} ${OBJS}
 
-${OBJS_BONUS}: ${SRC_BONUS} ${LIBBONUS}
-	${CC} ${CFLAGS} -c ${SRC_BONUS} -I ${LIBBONUS}
+${OBJS}: ${SRC} ${LIBH}
+	${CC} ${CFLAGS}  -c ${SRC} -I ${LIBH}
 
 bonus: ${NAME} ${OBJS_BONUS}
 	ar rc ${NAME} ${OBJS_BONUS}
+
+${OBJS_BONUS}: ${SRC_BONUS} ${LIBH}
+	${CC} ${CFLAGS} -c ${SRC_BONUS} -I ${LIBH}
 
 clean:
 	/bin/rm -f ${OBJS} ${OBJS_BONUS}

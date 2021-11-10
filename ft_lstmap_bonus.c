@@ -6,11 +6,11 @@
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 10:00:08 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/10 10:19:55 by mkorchi          ###   ########.fr       */
+/*   Updated: 2021/11/10 13:47:21 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
