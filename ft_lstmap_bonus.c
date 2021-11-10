@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 17:57:11 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/06 17:30:50 by mkorchi          ###   ########.fr       */
+/*   Created: 2021/11/10 10:00:08 by mkorchi           #+#    #+#             */
+/*   Updated: 2021/11/10 10:19:55 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*mylist;
-	t_list	*next;
+	t_list	*templist;
 
-	if (lst == NULL && del == NULL)
-		return ;
-	mylist = *lst;
-	while (mylist)
+	if (lst == NULL || f == NULL)
+		return (NULL);
+	mylist = NULL;
+	while (lst != NULL)
 	{
-		next = mylist->next;
-		del(mylist->content);
-		free(mylist);
-		mylist = next;
+		templist = ft_lstnew(f(lst->content));
+		if (templist == NULL)
+		{
+			ft_lstclear(&mylist, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&mylist, templist);
+		lst = lst->next;
 	}
-	*lst = NULL;
+	return (mylist);
 }

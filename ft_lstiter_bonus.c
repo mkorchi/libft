@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 16:31:09 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/06 17:30:34 by mkorchi          ###   ########.fr       */
+/*   Created: 2021/11/10 09:59:33 by mkorchi           #+#    #+#             */
+/*   Updated: 2021/11/10 09:59:43 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (lst == NULL || new == NULL)
+	t_list	*mylist;
+
+	if (lst == NULL || f == NULL)
 		return ;
-	new->next = *lst;
-	*lst = new;
+	mylist = lst;
+	while (mylist)
+	{
+		f(mylist->content);
+		mylist = mylist->next;
+	}
 }

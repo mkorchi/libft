@@ -6,7 +6,7 @@
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:39:10 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/04 14:30:23 by mkorchi          ###   ########.fr       */
+/*   Updated: 2021/11/10 11:49:52 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static size_t	calculate_len(char const *s, char c)
 	}
 	if (s[i - 1] == c)
 		len--;
+	if (s[0] != c)
+		len++;
 	return (len);
 }
 

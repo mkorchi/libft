@@ -6,7 +6,7 @@
 #    By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 11:49:02 by mkorchi           #+#    #+#              #
-#    Updated: 2021/11/08 14:05:35 by mkorchi          ###   ########.fr        #
+#    Updated: 2021/11/10 10:05:54 by mkorchi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,26 +18,28 @@ CFLAGS	= -Wall -Wextra -Werror
 
 LIBH		= libft.h
 
-SRC_BONUS =	ft_lstnew.c			\
-			ft_lstadd_front.c	\
-			ft_lstsize.c		\
-			ft_lstlast.c		\
-			ft_lstadd_back.c	\
-			ft_lstdelone.c		\
-			ft_lstclear.c		\
-			ft_lstiter.c		\
-			ft_lstmap.c			\
+LIBBONUS	= libft_bonus.h
+
+SRC_BONUS =	ft_lstnew_bonus.c		\
+			ft_lstadd_front_bonus.c	\
+			ft_lstsize_bonus.c		\
+			ft_lstlast_bonus.c		\
+			ft_lstadd_back_bonus.c	\
+			ft_lstdelone_bonus.c	\
+			ft_lstclear_bonus.c		\
+			ft_lstiter_bonus.c		\
+			ft_lstmap_bonus.c		\
 
 
-OBJS_BONUS	= ft_lstnew.o		\
-			  ft_lstadd_front.o	\
-			  ft_lstsize.o		\
-			  ft_lstlast.o		\
-			  ft_lstadd_back.o	\
-			  ft_lstdelone.o	\
-			  ft_lstclear.o		\
-			  ft_lstiter.o		\
-			  ft_lstmap.o		\
+OBJS_BONUS	= ft_lstnew_bonus.o			\
+			  ft_lstadd_front_bonus.o	\
+			  ft_lstsize_bonus.o		\
+			  ft_lstlast_bonus.o		\
+			  ft_lstadd_back_bonus.o	\
+			  ft_lstdelone_bonus.o		\
+			  ft_lstclear_bonus.o		\
+			  ft_lstiter_bonus.o		\
+			  ft_lstmap_bonus.o			\
 
 
 SRC		= ft_isalpha.c		\
@@ -118,8 +120,8 @@ ${OBJS}: ${SRC} ${LIBH}
 ${NAME}: ${OBJS}
 	ar rc ${NAME} ${OBJS}
 
-${OBJS_BONUS}: ${SRC_BONUS} ${LIBH}
-	${CC} ${CFLAGS} -c ${SRC_BONUS} -I ${LIBH}
+${OBJS_BONUS}: ${SRC_BONUS} ${LIBBONUS}
+	${CC} ${CFLAGS} -c ${SRC_BONUS} -I ${LIBBONUS}
 
 bonus: ${NAME} ${OBJS_BONUS}
 	ar rc ${NAME} ${OBJS_BONUS}
