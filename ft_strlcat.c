@@ -6,7 +6,7 @@
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:08:02 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/08 14:48:37 by mkorchi          ###   ########.fr       */
+/*   Updated: 2021/11/12 12:39:54 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	dstlen;
 	size_t	j;
 
+	if (dstsize == 0)
+		return (ft_strlen(src));
 	dstlen = ft_strlen(dst);
 	if (dstsize < dstlen + 1)
 	{
