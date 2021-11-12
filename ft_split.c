@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkorchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 17:39:10 by mkorchi           #+#    #+#             */
-/*   Updated: 2021/11/10 11:49:52 by mkorchi          ###   ########.fr       */
+/*   Created: 2021/11/12 09:47:11 by mkorchi           #+#    #+#             */
+/*   Updated: 2021/11/12 11:27:24 by mkorchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	calculate_len(char const *s, char c)
+static int	calculate_len(char const *s, char c)
 {
-	size_t	len;
-	int		i;
+	int	len;
+	int	i;
 
 	len = 0;
 	i = 0;
@@ -32,65 +32,77 @@ static size_t	calculate_len(char const *s, char c)
 	return (len);
 }
 
-static char	*getstring(char const *str, int start, int end)
+char	*getstring(char const *str, char c)
 {
 	int		i;
-	char	*newstr;
+	char	*mystr;
 
 	i = 0;
-	if (start >= end)
+	while (str[i] != c && str[i] != '\0')
+		i++;
+	mystr = (char *) malloc(sizeof(char) * (i + 1));
+	if (mystr == NULL)
 		return (NULL);
-	newstr = (char *) malloc(sizeof(char) * (end - start + 1));
-	if (!newstr)
-		return (NULL);
-	while (start + i < end)
+	i = 0;
+	while (str[i] != c && str[i] != '\0')
 	{
-		newstr[i] = str[start + i];
+		mystr[i] = str[i];
 		i++;
 	}
-	newstr[i] = '\0';
-	return (newstr);
+	mystr[i] = '\0';
+	return (mystr);
 }
 
-static char	**process(char **strs, char const *s, char c)
+static int	process(char **strs, char const *s, char c)
 {
 	int		i;
 	int		k;
-	int		start;
 	char	*str;
 
 	i = 0;
 	k = 0;
-	start = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if ((s[i] != c && i == 0) || (i > 0 && s[i] != c && s[i - 1] == c))
 		{
-			str = getstring(s, start, i);
-			if (str != NULL && str[0] != '\0')
-				strs[k++] = str;
-			start = i + 1;
+			str = getstring(s + i, c);
+			if (str == NULL)
+				return (0);
+			strs[k++] = str;
 		}
 		i++;
 	}
-	str = getstring(s, start, i);
-	if (str != NULL && str[0] != '\0')
-		strs[k++] = str;
 	strs[k] = 0;
-	return (strs);
+	return (1);
+}
+
+void	free_all(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+		free(strs[i++]);
+	free(strs);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	len;
 	char	**strs;
+	int		len;
+	int		res;
 
+	res = 0;
 	if (!s)
 		return (NULL);
 	len = calculate_len(s, c);
-	strs = (char **) malloc (sizeof(char *) * (len + 1));
+	strs = (char **) malloc(sizeof(char *) * (len + 1));
 	if (!strs)
 		return (NULL);
-	strs = process(strs, s, c);
-	return (strs);
+	res = process(strs, s, c);
+	if (res)
+		return (strs);
+	free_all(strs);
+	strs = NULL;
+	return (NULL);
 }
